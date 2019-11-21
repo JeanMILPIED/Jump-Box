@@ -4,6 +4,8 @@
 
 JUMPBOX (Public) => FINAL INSTANCE (Private) => NAT INSTANCE (PUBLIC) => Public Internet
 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
 ## create VPC and Subnets
 1. create your VPC: mine is named Jean_VPC and is a 192.168.0.0/16
 2. create an Internet Gateway assocated to the VPC named JEAN_IGW that is open to the internet (0.0.0.0/0)
