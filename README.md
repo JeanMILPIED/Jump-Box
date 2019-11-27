@@ -32,20 +32,21 @@ JUMPBOX (Public) => FINAL INSTANCE (Private) => NAT INSTANCE (PUBLIC) => Public 
 
 ## preparing the way to connect to FI through JB
 11. copy the keyfile of the FI machine ("JM_Keypair_2.pem") onto the JumpBox machine: 
-- use the command line on windows 10
+- use the command line on windows 10 shell
 ``scp -i "JM_Keypair.pem" "JM_Keypair_2.pem" ec2-user@52.70.164.164:/home/ec2-user/JM_Keypair_2.pem``
 
 12. connect to the JB machine via ssh
 - connect to the Jumpbox machine:
 ``ssh -i "JM_Keypair.pem" ec2-user@52.70.164.164``
-- apply chmod on the key file "JM_Keypair_2.pem" pasted
+- apply chmod on the key file "JM_Keypair_2.pem" pasted in the JB machine shell
 
 ## connection to the FI machine
-20. connect to the FI machine from the Jumpbox machine:
+20. connect to the FI machine from the Jumpbox machine with a ssh call from the JB machine shell:
 ``[ec2-user@ip-192-168-1-79 ~]$ ssh -i "JM_Keypair_2.pem" ec2-user@192.168.255.207``
 
 ## beware note: ensure the outbound connection of the private subnet goes through NAT
-21. !! route of private subnet should have a route to the NAT instance open to all Internet 0.0.0.0/0
+21. !! the route of private subnet should have a route to the NAT instance open to all Internet 0.0.0.0/0
 
 ## it is then ready!
 22. then you can ping and have fun from the Instance 2 "FI" through the Instance1 "Jump Box" via the Instance 3 "NAT"
+23. for example you can ping www.google.com
